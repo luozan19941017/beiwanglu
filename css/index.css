@@ -20,6 +20,10 @@ body {
   font-family: "iconfont";
   src: url(../font/iconfont2.woff); }
 
+@font-face {
+  font-family: "iconfont";
+  src: url(../font/iconfont3.woff); }
+
 .icon-font {
   font-family: "iconfont" !important; }
 
@@ -88,6 +92,9 @@ body {
 
 .icon-pifu:before {
   content: "\e650"; }
+
+.icon-xiugai:before {
+  content: "\e6d6"; }
 
 @media screen and (max-width: 1080px) {
   html {
@@ -176,7 +183,8 @@ body {
     border-bottom: 1px solid #c7c9c8;
     box-sizing: border-box;
     padding: 0.6rem 0.42rem 0.6rem 0.45rem;
-    font-size: 0.37rem; }
+    font-size: 0.37rem;
+    overflow: hidden; }
     .box .list .list-item .todo {
       height: 0.37rem;
       font-size: 0.37rem;
@@ -187,8 +195,9 @@ body {
       .box .list .list-item .todo::after {
         display: none;
         content: '';
-        width: 100%;
+        width: 80%;
         height: 1px;
+        background: #eee;
         position: absolute;
         top: 0;
         bottom: 0;
@@ -198,12 +207,14 @@ body {
       width: 0.42rem;
       height: 0.42rem;
       position: absolute;
-      font-size: 0.3rem;
+      font-size: 0.53rem;
       line-height: 0.42rem;
       top: 0;
       bottom: 0;
       margin: auto 0;
       right: 0.42rem; }
+  .box .list .done .todo {
+    color: #eee; }
   .box .list .done .todo::after {
     display: block; }
   .box .list .done .close {
@@ -237,6 +248,15 @@ body {
 .active {
   animation: donghua .8s ease both; }
 
+@keyframes shanchu {
+  0% {
+    transform: translate3d(0, 0, 0); }
+  100% {
+    transform: translate3d(100%, 0, 0); } }
+
+.ac {
+  animation: shanchu .8s ease both; }
+
 .add-box {
   display: none; }
   .add-box .add-header {
@@ -247,6 +267,8 @@ body {
       padding: 0  0.41rem;
       background: pink;
       position: relative; }
+      .add-box .add-header .header-content.huaipifu {
+        background: aqua; }
       .add-box .add-header .header-content .fanhui {
         position: absolute;
         width: 0.51rem;
@@ -279,13 +301,16 @@ body {
     bottom: 0;
     height: 1.25rem;
     background: pink; }
+    .add-box .add-footer.huaipifu {
+      background: aqua; }
     .add-box .add-footer .delete {
       position: absolute;
-      left: 0;
-      right: 0;
       top: 0;
       bottom: 0;
+      left: 0;
+      right: 0;
       margin: auto;
+      float: left;
       width: 0.56rem;
       height: 0.63rem;
       font-size: 0.63rem; }
@@ -317,3 +342,41 @@ body {
         height: 1.57rem;
         line-height: 1.57rem;
         text-align: center; }
+
+.xiugai-box {
+  display: none; }
+  .xiugai-box .add-header {
+    height: 1.02rem;
+    box-sizing: border-box; }
+    .xiugai-box .add-header .header-content {
+      height: 1.02rem;
+      padding: 0  0.41rem;
+      background: pink;
+      position: relative; }
+      .xiugai-box .add-header .header-content.huaipifu {
+        background: aqua; }
+      .xiugai-box .add-header .header-content .xiugai {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width: 0.51rem;
+        height: 0.51rem;
+        font-size: 0.50rem; }
+      .xiugai-box .add-header .header-content .all {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        width: 1.9rem;
+        height: 0.51rem;
+        float: left;
+        margin-left: 1.06rem;
+        line-height: 0.51rem;
+        font-size: 0.43rem; }
+  .xiugai-box textarea {
+    width: 100%;
+    outline: medium;
+    font-size: 0.37rem;
+    border: 0;
+    resize: none; }

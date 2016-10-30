@@ -20,6 +20,10 @@ body{
   font-family:"iconfont";
   src:url(../font/iconfont2.woff)
 }
+@font-face{
+  font-family:"iconfont";
+  src:url(../font/iconfont3.woff)
+}
 .icon-font{
   font-family:"iconfont" !important;
 }
@@ -47,7 +51,7 @@ body{
 
 .icon-xitongfanhui:before { content: "\e6b6"; }
 .icon-pifu:before { content: "\e650"; }
-
+.icon-xiugai:before { content: "\e6d6"; }
 
 ////////$device-size设计图的尺寸
 @mixin useRem($device-size){
@@ -63,7 +67,6 @@ body{
 @include useRem(1080px)
 
 .box {
-
   .header {
     height: 1.02rem;
     //border-top:1px solid red;
@@ -87,7 +90,6 @@ body{
         margin: auto 0;
         float: left;
       }
-
       .all {
         position: absolute;
         top: 0;
@@ -122,7 +124,6 @@ body{
       }
     }
   }
-
   .list {
     position: relative;
     overflow-y: auto;
@@ -134,6 +135,7 @@ body{
       box-sizing: border-box;
       padding: 0.6rem 0.42rem 0.6rem 0.45rem;
       font-size: 0.37rem;
+      overflow:hidden;
       .todo {
         height: 0.37rem;
         font-size: 0.37rem;
@@ -145,9 +147,9 @@ body{
         &::after {
           display: none;
           content: '';
-          width: 100%;
+          width: 80%;
           height: 1px;
-          //background: red;
+          background:#eee;
           position: absolute;
           top: 0;
           bottom: 0;
@@ -159,7 +161,7 @@ body{
         width: 0.42rem;
         height: 0.42rem;
         position: absolute;
-        font-size: 0.3rem;
+        font-size: 0.53rem;
         line-height: 0.42rem;
         top: 0;
         bottom: 0;
@@ -167,15 +169,16 @@ body{
         right: 0.42rem;
       }
     }
+    .done .todo{
+      color:#eee;
+    }
     .done .todo::after {
       display: block;
     }
     .done .close {
       display: block;
     }
-
   }
-
   .footer {
     width: 100%;
     position: fixed;
@@ -205,17 +208,16 @@ body{
   .active {
     animation:donghua .8s ease both;
   }
-  //@keyframes huilai{
-  //  0% {transform:translate3d(-60%,0,0)}
-  //  100%{transform:translate3d(-10%,0,0)}
-  //}
-  //.ac {
-  //  animation:huilai .8s ease both;
-  //}
+  @keyframes shanchu{
+    0% {transform:translate3d(0,0,0)}
+    100%{transform:translate3d(100%,0,0)}
+  }
+  .ac {
+    animation:shanchu .8s ease both;
+  }
 
 .add-box{
   display:none;
-
 .add-header{
   height:1.02rem;
   //border-top:1px solid red;
@@ -226,6 +228,9 @@ body{
     padding:0  0.41rem;
     background:pink;
     position:relative;
+    &.huaipifu{
+      background:aqua;
+    }
     .fanhui{
       position:absolute;
       width:0.51rem;
@@ -236,7 +241,6 @@ body{
       margin:auto 0;
       float:left;
     }
-
     .all{
       position:absolute;
       top:0;
@@ -249,7 +253,6 @@ body{
       line-height:0.51rem;
       font-size:0.43rem;
     }
-
   }
 }
 textarea{
@@ -265,13 +268,17 @@ textarea{
   bottom:0;
   height:1.25rem;
   background:pink;
+  &.huaipifu{
+    background:aqua;
+  }
   .delete{
     position:absolute;
-    left:0;
-    right:0;
     top:0;
     bottom:0;
+    left:0;
+    right:0;
     margin:auto;
+    float:left;
     width:0.56rem;
     height:0.63rem;
     font-size:0.63rem;
@@ -310,6 +317,53 @@ textarea{
         text-align:center;
       }
     }
+  }
+}
+
+
+
+.xiugai-box{
+  display:none;
+  .add-header{
+    height:1.02rem;
+    box-sizing:border-box;
+    .header-content{
+      height:1.02rem;
+      padding:0  0.41rem;
+      background:pink;
+      position:relative;
+      &.huaipifu{
+        background:aqua;
+      }
+      .xiugai{
+        position:absolute;
+        top:0;
+        bottom:0;
+        margin:auto;
+        width:0.51rem;
+        height:0.51rem;
+        font-size:0.50rem;
+      }
+      .all{
+        position:absolute;
+        top:0;
+        bottom:0;
+        margin:auto 0;
+        width:1.9rem;
+        height:0.51rem;
+        float:left;
+        margin-left:1.06rem;
+        line-height:0.51rem;
+        font-size:0.43rem;
+      }
+    }
+  }
+  textarea{
+    width:100%;
+    outline:medium;
+    font-size:0.37rem;
+    border:0;
+    resize:none;
   }
 }
 //换皮肤
